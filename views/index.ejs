@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hangman!</title>
+	<!--CSS BEGIN-->
+	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+	<link href='/bower_components/bootstrap/dist/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+	<link href='/css/index.css' rel='stylesheet' type='text/css'>
+	<!--CSS END-->
+	<!--JS BEGIN-->
+	<script type='text/javascript' src='/bower_components/jquery/dist/jquery.min.js'></script>
+	<script type='text/javascript' src='/bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
+	<!--JS END-->
+</head>
+
+<body>	
+	<div class="modal show intro-container">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	      	<center>
+	        	<h2 class="modal-title">Hangman!</h2>
+	        </center>
+	      </div>
+	      <div class="modal-body">
+	        <div class="input-group">
+			  <span class="input-group-addon">Name</span>
+			  <input id="userName" type="text" class="form-control" placeholder="Your Name">
+			</div>
+	      </div>
+	      <div class="modal-footer">
+	      	<center>
+	        	<button id="play" type="button" class="btn btn-primary">Play game</button>
+	        </center>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+<script>
+$(document).ready(function(){
+	$('#play').click(function(){
+		var name = $('#userName').val();
+		var url = name ? '/newgame?name='+name : '/newgame';
+		window.location.href=url;
+	});
+});
+</script>
+</body>
+</html>

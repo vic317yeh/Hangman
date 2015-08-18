@@ -1,0 +1,42 @@
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
+.info-box {
+	width:280px;
+	border: 1px solid #ddd;
+	background-color:#ecf0f1;
+	opacity: 0.8;
+	z-index:999;
+}
+
+#game-board {
+	position: relative;
+	top:100px;
+	height:500px;
+	width:600px;
+	border: 1px solid #aaa;
+}
+
+.hint {
+	color:#888;
+	position: absolute;
+	top:250px;
+	left:150px;
+	font-size:18px;
+	z-index:999;
+}
+
+#phrase {
+	margin-top:5px;
+	font-size:33px;
+	letter-spacing: 6px;
+	text-align: center;
+}
+
+#hangman-img {
+	width:350px;
+	height:350px;
+	left:130px;
+	position: relative;
+}

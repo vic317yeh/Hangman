@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hangman!</title>
+	<!--CSS BEGIN-->
+	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+	<link href='/bower_components/bootstrap/dist/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+	<link href='/css/game.css' rel='stylesheet' type='text/css'>
+	<!--CSS END-->
+	<!--JS BEGIN-->
+	<script type='text/javascript' src='/bower_components/jquery/dist/jquery.min.js'></script>
+	<script type='text/javascript' src='/bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
+	<script type='text/javascript' src='/js/game.js'></script>
+	<!--JS END-->
+</head>
+
+<body>
+	<!--INFO BEGIN-->	
+	<div class='info-box col-md-4' id="game-info" game-key=<%= id%>>
+	  <h3 style="margin-left:15px;margin-bottom:10px">Game Info</h3>
+	  <div class="form-group">
+	    <label class="col-md-6 control-label">Name</label>
+	    <div  class="col-md-offset-5" id="user-name"><%= name%></div>
+	  </div>
+	  <div class="form-group">
+	    <label class="col-md-6 control-label"># Tries Left</label>
+	    <div  class="col-md-offset-5" id="num-tries">(new game)</div>
+	  </div>
+	  <div class="form-group">
+	    <button style="margin-left:10px" type="button" class="btn btn-primary new-game-btn">New Game</button>
+	  </div>
+	</div>
+	<!--INFO END-->
+
+	<!--GAME BOARD BEGIN-->
+	<div id="game-board" class='col-md-offset-3'>
+		<p class="hint">(Press your keyboard to start guessing)</p>	
+
+		<div class="phrase-div">
+			<h4 style="margin-left:5px">Current Phrase</h4>
+			<p id="phrase"><br/></p>
+		</div>
+		<img id="hangman-img" src="/img/5.png"  /> 
+		<p style="position:absolute;bottom:0;margin-left:3px">
+			Letters Guessed: <span id='guess-list'></span>
+		</p>
+	</div>
+	<!--GAME BOARD END-->
+
+	<!--MODAL BEGIN-->
+	<div class="modal fade" id="game-modal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h4 class="modal-title" style="text-align:center"></h4>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary new-game-btn">New Game</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!--MODAL END-->
+
+</body>
+</html>
