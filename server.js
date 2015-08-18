@@ -6,6 +6,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var querystring = require('querystring');
 var http = require('http');
+var api = require('./scripts/api');
 
 // Global
 var HANGMAN_URL = 'hangman.coursera.org';
@@ -92,6 +93,11 @@ app.post('/guess',function(req,res){
 	httpreq.write(data);
 	httpreq.end();
 
+});
+
+app.get('/autoguess',function(req,res){
+	var feedback = api.autoguess(req.query.guessedList);	
+	res.send(feedback);
 });
 
 app.use(function(req, res, next) {

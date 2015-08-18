@@ -100,7 +100,7 @@ $(document).ready(function(){
 
 	// user guesses key
 	$(document).keypress(function(event){
-	    var key = String.fromCharCode(event.which); 
+	    var key = String.fromCharCode(event.which).toLowerCase(); 
 	    if (isLetter(key) && notGuessedYet(key)) {
 	    	if (first) {
 	    		$('.hint').hide();
@@ -115,6 +115,16 @@ $(document).ready(function(){
 	$('.new-game-btn').click(function(){
 		var name = $('#user-name').text();
 		window.location.href="/newgame?name="+name;
+	});
+
+	// autoguess for the user
+	$('.autoguess-btn').click(function(){
+		$.get( "/autoguess", {guessedList:guessedList.join('')} , function( data ) {
+			var e = jQuery.Event("keypress");
+			e.ctrlKey = false;
+			e.which = data.charCodeAt(0);
+			$(document).trigger(e);
+		});
 	});
 
 });
